@@ -60,7 +60,7 @@ export default function Hero() {
         </p>
 
         <h1 className="text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight">
-          {about?.name || "Anju"} <span className="text-indigo-600">Pavithran</span>
+          {about?.name || "Anju"} <span className="text-indigo-600"></span>
         </h1>
 
         <p className="mt-4 text-2xl text-gray-600 max-w-lg mx-auto md:mx-0">
