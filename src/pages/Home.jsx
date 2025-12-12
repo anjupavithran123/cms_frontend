@@ -63,15 +63,24 @@ export default function Home() {
     window.location.hash = id;
   };
 
+  // UPDATED NAVBAR
   const Header = () => (
-    <header className="sticky top-0 z-70 bg-white/90 backdrop-blur-sm shadow-lg">
-      <div className="max-w-7xl mx-auto w-full px-8">
-        <div className="flex justify-between items-center h-16">
-          <a href="#" onClick={() => handleNavClick('hero')} className="text-2xl font-extrabold text-indigo-600 tracking-tight">
+    <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-purple-700 via-violet-900 to-purple-800 shadow-xl">
+      <div className="max-w-[1400px] mx-auto w-full px-10">
+        <div className="flex justify-between items-center h-20">
+
+          {/* Logo */}
+          <a
+            href="#"
+            onClick={() => handleNavClick('hero')}
+            className="text-3xl font-extrabold text-white tracking-tight"
+          >
             Anju Pavithran
           </a>
+
+          {/* Desktop Navigation */}
           <nav className="hidden sm:block">
-            <ul className="flex space-x-6">
+            <ul className="flex space-x-10">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <a
@@ -80,7 +89,13 @@ export default function Home() {
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className={`font-medium transition duration-150 relative ${activeSection === item.href ? 'text-indigo-600 after:w-full after:bg-indigo-600' : 'text-gray-600 hover:text-indigo-600 after:w-0 hover:after:w-full'} after:h-[2px] after:absolute after:bottom-[-4px] after:left-0 after:transition-all`}
+                    className={`font-medium transition duration-150 relative text-white 
+                    ${
+                      activeSection === item.href
+                        ? "after:w-full after:bg-white"
+                        : "after:w-0 hover:after:w-full opacity-80 hover:opacity-100"
+                    }
+                    after:h-[2px] after:absolute after:bottom-[-6px] after:left-0 after:transition-all`}
                   >
                     {item.name}
                   </a>
@@ -88,9 +103,10 @@ export default function Home() {
               ))}
             </ul>
           </nav>
+
           <div className="sm:hidden">
-            <button className="text-gray-600 hover:text-indigo-600">
-              <ChevronDown className="w-6 h-6" />
+            <button className="text-white hover:opacity-80">
+              <ChevronDown className="w-7 h-7" />
             </button>
           </div>
         </div>
@@ -103,9 +119,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
       <Header />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+      {/* Padding top increased because navbar is fixed */}
+      <main className="pt-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {ActiveSectionComponent ? <ActiveSectionComponent /> : <Hero />}
       </main>
+
       <Footer />
     </div>
   );
