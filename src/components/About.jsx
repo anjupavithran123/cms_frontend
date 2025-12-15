@@ -31,8 +31,6 @@ export default function About() {
         <h2 className="text-3xl font-bold mb-6">About</h2>
 
       <h2 className="text-3xl font-bold mb-4">{about.name}</h2>
-      <p className="text-gray-700 mb-2">{about.content}</p>
-      <p className="text-gray-500 mb-2">Phone: {about.phone}</p>
       {about.photo && (
         <img
           src={about.photo}
@@ -40,6 +38,10 @@ export default function About() {
           className="mx-auto rounded w-48 h-48 object-cover mb-2"
         />
       )}
+            <p className="text-gray-700 mb-2">{about.content}</p>
+
+            <p className="text-gray-500 mb-2">Phone: {about.phone}</p>
+
       {about.resume && (
         <a
           href={about.resume}
