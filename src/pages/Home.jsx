@@ -66,10 +66,10 @@ export default function Home() {
   // UPDATED NAVBAR
   const Header = () => (
     <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-purple-700 via-violet-900 to-purple-800 shadow-xl">
-      <div className="max-w-[1400px] mx-auto w-full px-10">
-        <div className="flex justify-between items-center h-20">
-
-          {/* Logo */}
+      <div className="max-w-[1400px] mx-auto w-full px-5">
+        <div className="flex justify-between items-center h-25">
+  
+          {/* Left: Logo */}
           <a
             href="#"
             onClick={() => handleNavClick('hero')}
@@ -77,8 +77,8 @@ export default function Home() {
           >
             Anju Pavithran
           </a>
-
-          {/* Desktop Navigation */}
+  
+          {/* Center: Navigation */}
           <nav className="hidden sm:block">
             <ul className="flex space-x-10">
               {navigation.map((item) => (
@@ -90,12 +90,12 @@ export default function Home() {
                       handleNavClick(item.href);
                     }}
                     className={`font-medium transition duration-150 relative text-white 
-                    ${
-                      activeSection === item.href
-                        ? "after:w-full after:bg-white"
-                        : "after:w-0 hover:after:w-full opacity-80 hover:opacity-100"
-                    }
-                    after:h-[2px] after:absolute after:bottom-[-6px] after:left-0 after:transition-all`}
+                      ${
+                        activeSection === item.href
+                          ? "after:w-full after:bg-white"
+                          : "after:w-0 hover:after:w-full opacity-80 hover:opacity-100"
+                      }
+                      after:h-[2px] after:absolute after:bottom-[-6px] after:left-0 after:transition-all`}
                   >
                     {item.name}
                   </a>
@@ -103,17 +103,34 @@ export default function Home() {
               ))}
             </ul>
           </nav>
-
+  
+          {/* Right: Admin Button */}
+          <div className="hidden sm:flex items-center gap-4">
+            <a
+              href="https://cms-admin-kohl.vercel.app/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 
+                         backdrop-blur-md border border-white/20 text-white font-semibold
+                         hover:bg-white hover:text-purple-800 transition-all duration-300"
+            >
+              <Briefcase className="w-5 h-5" />
+              Admin
+            </a>
+          </div>
+  
+          {/* Mobile menu icon */}
           <div className="sm:hidden">
             <button className="text-white hover:opacity-80">
               <ChevronDown className="w-7 h-7" />
             </button>
           </div>
+  
         </div>
       </div>
     </header>
   );
-
+  
   const ActiveSectionComponent = sectionMap[activeSection];
 
   return (

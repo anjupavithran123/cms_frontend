@@ -79,6 +79,7 @@ export default function Hero() {
 
             Download Resume
           </a>
+          
         </div>
       </div>
 
